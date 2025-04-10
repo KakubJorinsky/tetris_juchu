@@ -22,6 +22,7 @@ game_on = False
 # Výchozí obtížnost
 obtiznost = "Lehká"
 
+
 while menu_on:
     screen.fill(BLACK)  # Černé pozadí
     
@@ -34,7 +35,7 @@ while menu_on:
     text_obtiznost = font_small.render('Vyberte obtížnost:', True, WHITE)
     text_obtiznost_volba = font_small.render('1 - Lehká   2 - Střední   3 - Těžká', True, WHITE)
     text_aktualni_obtiznost = font_small.render(f'Aktuální obtížnost: {obtiznost}', True, WHITE)
-    
+    print("jaj")
     # Výpočet pozic pro centrování
     text_hrat_rect = text_hrat.get_rect(center=(WIDTH // 2, HEIGHT // 3))
     text_mezernik_rect = text_mezernik.get_rect(center=(WIDTH // 2, HEIGHT // 3 + 50))
@@ -68,12 +69,15 @@ while menu_on:
         game_on = True
     
     
-    while game_on:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                game_on = False
-
-        keys = pygame.key.get_pressed()
+while game_on:
+    screen.fill(BLACK)
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            game_on = False
+            pygame.quit()
+            sys.exit()
+        
+    keys = pygame.key.get_pressed()
 
     
-    pygame.display.update()
+pygame.display.update()
